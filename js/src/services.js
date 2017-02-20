@@ -43,13 +43,12 @@ services.constant("Config",{
         systemError:"系统发生错误，请稍后重试！"
     },
     ajaxUrls:{
-    	//baseUrl:"",
-        baseUrl:"http://106.14.41.180:8080/uidesign/",
+        baseUrl:"http://106.14.41.180:8080/gui/",
         //baseUrl:"http://192.168.2.8:8080/design/",
         getAllCourseDesign:"coursedesign/frontList",
         getCourseDesignDetail:"coursedesign/select/:id",
-        getCourseDesignWork:"http://design.hnu.edu.cn/pinwall/api/topics/:id/artifacts",
-        getCourseDesignWorkDetail:"http://design.hnu.edu.cn/pinwall/api/artifacts/:id",
+        getCourseDesignWork:"http://pinwall.design-engine.org/api/topics/:id/artifacts",
+        getCourseDesignWorkDetail:"http://pinwall.design-engine.org/api/artifacts/:id",
         getAllCourseVideo:"videocourse/frontList",
         getCourseVideoDetail:"videocourse/select/:id",
         getAllCourseWare:"courseware/frontList",
