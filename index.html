@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>gui</title>
+    <link href="css/lib/toaster.css" rel="stylesheet" type="text/css">
+    <link href="css/src/main.css" rel="stylesheet" type="text/css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-resource.min.js"></script>
+    <script src="js/lib/angular-touch.min.js"></script>
+    <script src="js/lib/angular-sanitize.min.js"></script>
+    <script src="js/lib/toaster.js"></script>
+    <script src="js/src/controllers.js"></script>
+    <script src="js/src/filters.js"></script>
+    <script src="js/src/models.js"></script>
+    <script src="js/src/services.js"></script>
+    <script src="js/src/directives.js"></script>
+    <script src="js/src/app.js"></script>
+</head>
+<body ng-controller="super">
+<toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+<div class="wrapper">
+    <div class="flexColumn">
+        <div class="header">
+            
+
+            <!--logo一般被H1包住，更好收录-->
+            <h1>
+               
+                <a href="#">
+                    
+                    图形界面设计
+                </a>
+            </h1>
+            <div class="activeMenuBtn" ng-click="activateMenu()">
+                <span ng-class="menuIcon" class="menuIcon"></span>
+            </div>
+            <ul class="menu" id="menu"  ng-class="menuState">
+                <li class="item"><a ng-class="{active:mainVars.currentMenu=='home'}"
+                                    ng-click="toPage('home')" class="link">首页</a></li>
+                <li class="item"><a ng-class="{active:mainVars.currentMenu=='courseDesign'}"
+                                    ng-click="toPage('courseDesign')" class="link">专题设计</a></li>
+                <li class="item"><a ng-class="{active:mainVars.currentMenu=='courseWare'}"
+                                    ng-click="toPage('courseWare')" class="link">教学课件</a></li>
+                <li class="item"><a ng-class="{active:mainVars.currentMenu=='courseVideo'}"
+                                    ng-click="toPage('courseVideo')" class="link">视频教程</a></li>
+                <li class="item"><a ng-class="{active:mainVars.showSearchPanel}"
+                                    ng-click="toggleSearch()" class="link search" ><span class="icon-search"></span></a></li>
+            </ul>
+        </div>
+        <div class="sliderBar" ng-class="slideBarActive">
+            <a class="menuFlag" ng-click="showSlideMenu()">
+
+                <span class="logo">
+                  <span class="icon-gui"></span>  
+                </span>
+            </a>
+        </div>
+        
+        <ul class="sliderNav" ng-if="mainVars.showSlideMenu">
+            <li class="item">
+                <a href="#" class="link">
+                    <i class="icon-rocket"></i><b class="text">服务设计</b>
+                </a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">
+                    <i class="icon-typo"></i><b class="text">文字设计</b>
+                </a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">
+                    <i class="icon-pinwall"></i><b class="text">图钉墙</b>
+                </a>
+            <li class="item">
+                <a href="#" class="link">
+                    <i class="icon-hid"></i><b class="text">工业设计史</b>
+                </a>
+            <li class="item">
+                <a href="../gui/index.html" class="link">
+                    <i class="icon-gui"></i><b class="text">图形界面设计</b>
+                </a>
+        </ul>
+
+        <div ng-include="mainVars.contentTemplate"  ng-class="{hidden:mainVars.detailTemplate}" class="flex">
+
+        </div>
+    </div>
+
+
+    <div ng-include="mainVars.detailTemplate" class="detailTemplateContainer">
+
+    </div>
+    <div ng-include="mainVars.workDetailTemplate" class="detailTemplateContainer" style="z-index: 300">
+
+    </div>
+    
+    <div class="searchPanel borderBox" ng-if="mainVars.showSearchPanel">
+       <div class="innerWrapper">
+           <div class="searchInput">
+            <input class="input" type="text" ng-model="searchContent">
+            <div class="handler" ng-click="toSearchResult(searchContent)">
+                <span class="icon-search"></span>
+            </div>
+        </div>
+        <p class="colorFFFFFF fB">推荐内容</p>
+        <ul class="list1">
+            <li class="item"><a href="#" class="text" ng-click="toSearchResult('模式创新')">模式创新</a></li>
+            <li class="item"><a href="#" class="text" ng-click="toSearchResult('图标')">图标</a></li>
+        </ul>
+       </div>
+        
+    </div>
+
+    <div class="loading" ng-show="rootFlags.showLoading">
+         加载中...
+         <div class="spinner icon-gui"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

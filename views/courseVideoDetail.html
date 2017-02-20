@@ -1,0 +1,40 @@
+<div ng-controller="courseVideoDetail" class="">
+    <div class="header">
+        <a class="goBack" ng-click="hideDetail()">
+            <span class="icon-arrow-left"></span>
+        </a>
+
+        <h1 class="pageTitle">{{info.title}}</h1>
+
+    </div>
+    
+     <div class="main courseWareDetail flex">
+        <div class="innerwrapper col-12">
+        <!--这里的class取一个有意义的名字-->
+        <video src="{{info.content}}" class="videoPlayer" controls>
+            
+        </video>
+        
+        <!--这里的class不要用list3，list只用于列表-->
+        <div class="postInfo">
+            <div class="videoTag">
+                <h4>相关标签</h4>
+                <ul class="list3">
+                    <li class="item" ng-repeat="t in info.videoCourseTagList">
+                        <label class="text">{{t.tag.tagName}}</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="videoInfo">
+                <p class="subtitle">来自&nbsp;&nbsp;<span class="author">{{info.author}}</span>，<span class="date">{{info.date|formatDate}}</span></p>
+                
+            </div>
+            
+        </div>
+
+        
+    </div>
+    
+    </div>
+    <div ng-include="mainVars.footer"></div>
+</div>

@@ -1,0 +1,94 @@
+    <div class="main" ng-controller="home">
+       <div class="innerwrapper col-12">
+         <div class="roll">
+<!--
+            <a class="nav" ng-click="prev()" ng-if="roll.showPrev">
+                <span class="icon-arrow-left"></span>
+            </a>
+            <a class="nav next" ng-click="next()" ng-if="roll.showNext">
+                <span class="icon-arrow-right"></span>
+            </a>
+-->
+<!--
+            <div class="cardInfo">
+                <h3 class="title">{{roll.info.title}}
+                </h3>
+                <div>
+                    <label>指导老师</label>
+                    <label class="author">{{roll.info.teacher}}</label>
+                    <span class="date">{{roll.info.createTime|formatDate}}</span>
+                </div>
+                <div class="excerptContainer">
+                    <label>课程介绍</label>
+                    <p class="excerpt gradient">{{roll.info.abstract_}}</p>
+                </div>
+            </div>
+-->
+            <ul class="items" style="{{roll.rollLeft}}">
+                <li class="item" ng-repeat="i in roll.items">
+                    <a ng-click="showCourseDesignDetail(i.id,i.courseDetailId)" class="more">
+                        <img class="thumb" ng-src="{{i.bg}}">
+                        <div class="info gradient1">
+                            <h3 class="title">{{i.title}}</h3>
+                            <p class="subtitle">
+                                指导老师 {{i.teacher}}，{{i.createTime|formatDate}}
+                            </p>
+                            <p class="excerpt">{{i.abstract_}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+<!--
+            <ul class="numbers">
+                <li class="item" ng-repeat="i in roll.items">
+                    <a class="number" data-number="{{$index}}" ng-class="{active:$index==roll.currentNumber}"></a>
+                </li>
+            </ul>
+-->
+        </div>
+
+        <div class="section col-12">
+            <h3 class="sectionTitle">
+                专题设计精选
+            </h3>
+            <ul class="list">
+                <li class="item col-3" ng-repeat="ncd in newestCourseDesigns">
+                    <a ng-click="showCourseDesignDetail(ncd.id,ncd.courseDetailId)" class="link">
+                        <img class="thumb" ng-src="{{ncd.thumbnail}}" alt="">
+                        <h3 class="title">{{ncd.title}}</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section col-6">
+            <h3 class="sectionTitle">
+                最新教学课件
+            </h3>
+            <ul class="list list001">
+                <li class="item col-2" ng-repeat="ncw in newestCourseWares">
+                    <a ng-click="showCourseWareDetail(ncw.id)" class="link">
+                        <img class="thumb" ng-src="{{ncw.thumbnail}}" alt="">
+                        <h3 class="title">{{ncw.title}}</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section col-6">
+            <h3 class="sectionTitle">
+                最新教学视频
+            </h3>
+            <ul class="list list001">
+                <li class="item col-2" ng-repeat="ncv in newestCourseVideos">
+                    <a ng-click="showCourseVideoDetail(ncv.id)" class="link">
+                        <img class="thumb" ng-src="{{ncv.thumbnail}}" alt="">
+                        <h3 class="title">{{ncv.title}}</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>  
+       </div>
+       
+    </div>
+    <div ng-include="mainVars.footer"></div>

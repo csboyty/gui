@@ -1,0 +1,22 @@
+<div ng-controller="courseWareDetail" class="">
+    <div class="header">
+        <a class="goBack" ng-click="hideDetail()">
+            <span class="icon-arrow-left"></span>
+        </a>
+
+        <!--logo一般被H1包住，更好收录-->
+        <h1 class="pageTitle">{{info.title}}</h1>
+    </div>
+    
+    <div class="main flex">
+        <div class="innerwrapper col-12">
+        <div class="postInfo">
+           <p class="subtitle"> 来自&nbsp;&nbsp;<span class="author">{{info.author}}</span>，<span class="date">{{info.createTime|formatDate}}</span></p>
+            
+        </div>
+        <div class="postContent" ng-bind-html="info.content"></div>
+    </div>
+    
+    </div>
+    <div ng-include="mainVars.footer"></div>
+</div>

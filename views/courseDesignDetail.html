@@ -1,0 +1,42 @@
+<div ng-controller="courseDesignDetail" window-scroll="parent">
+        <div class="header">
+        <a class="goBack" ng-click="hideDetail()">
+            <span class="icon-arrow-left"></span>
+        </a>
+
+        <h1 class="pageTitle">
+           {{info.title}}
+        </h1>
+
+        </div>
+       
+        <div class="main flex" >
+           <div class="innerwrapper col-12">
+            <div class="pageHeader" ng-class="pageHeaderActive">
+                <div class="title">
+                    指导老师 <span class="name">{{info.teacher}}</span> 
+                </div>
+                <p class="date">{{info.date|formatDate}}</p>
+                <p class="excerpt">{{info.abstract_}}</p>
+            </div>
+            <ul class="list2">
+                <li class="item col-4" ng-repeat="a in artifacts">
+                    <a ng-click="showWorkDetail(a.artifact.id)" class="link">
+                        <img class="thumb" ng-src="{{a.artifact.profile_image}}" alt="">
+                        <div class="info">
+                            <h3 class="title">{{a.artifact.name}}</h3>
+                            <p><span class="name">{{a.user.fullname}}</span>&nbsp;<span class="date">{{a.artifact.created_at}}</span>&nbsp;发布</p>
+                            <p class="excerpt">{{a.artifact.description}}</p>
+                        </div>
+                        <div class="tip">
+<!--                            <span class="arrow arrowTop">上三角</span>-->
+                            <span class="icon-light-bubble"></span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <div ng-include="mainVars.footer"></div>
+</div>

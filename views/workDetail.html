@@ -1,0 +1,33 @@
+<div ng-controller="workDetail" class="">
+    <div class="header">
+        <a class="goBack" ng-click="hideWorkDetail()">
+            <span class="icon-arrow-left"></span>
+        </a>
+
+        <!--logo一般被H1包住，更好收录-->
+        <h1 class="pageTitle">{{info.artifact.name}}</h1>
+    </div>
+    <div class="main flex">
+    <div class="innerwrapper col-12">
+        
+        <div class="postInfo">
+            <p class="subtitle">来自&nbsp;&nbsp;<span class="author">{{info.user.fullname}}</span>， <span class="date">{{info.artifact.created_at}}</span></p>
+            
+        </div>
+        <div class="postContent" >
+            <p>{{info.artifact.description}}</p>
+            <p ng-repeat="a in info.artifact.assets">
+                <a href="{{a.view_url}}" ng-if="a.view_url" target="_blank">
+                    <img ng-src="{{a.profile_image}}">
+                </a>
+                <a href="{{a.media_file}}" ng-if="!a.view_url&&a.media_file" target="_blank">
+                    <img ng-src="{{a.profile_image}}">
+                </a>
+                <img ng-if="!a.view_url&&!a.media_file" ng-src="{{a.profile_image}}">
+            </p>
+        </div>
+    </div>
+    
+    </div>
+    <div ng-include="mainVars.footer"></div>
+</div>

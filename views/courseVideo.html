@@ -1,0 +1,27 @@
+   <div class="main" ng-controller="courseVideo" window-scroll>
+   <div class="innerwrapper col-12">
+    <div class="pageHeader pageHeader002" ng-class="pageHeaderActive">
+        <h2 class="title">视频教程</h2>
+        <p class="excerpt">本页收录了湖南大学设计艺术学院《图形用户界面设计》以及《网页设计》课程相关的视频教程，该视频教程由湖南大学师生自主录制，相关知识产权归原作者所有。视频教程中的各类观点仅代表教程作者的个人观点。</p>
+    </div>
+    <ul class="list2">
+        <li class="item col-4" ng-repeat="v in videos">
+            <a ng-click="showCourseVideoDetail(v.id)" class="link">
+                <img class="thumb" ng-src="{{v.thumbnail}}" alt="">
+                <div class="info">
+                    <h3 class="title">{{v.title}}</h3>
+                    <p class="subtitle"><label class="author">{{v.author}}</label>&nbsp;<span>{{v.createTime|formatDate}}</span></p>
+                    <p class="excerpt gradient">{{v.abstract_}}</p>
+                </div>
+                <div class="tip">
+                    <span class="icon-play"></span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    
+    
+    </div> 
+
+    </div>
+<div ng-include="mainVars.footer"></div>

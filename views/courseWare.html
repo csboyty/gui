@@ -1,0 +1,32 @@
+
+
+
+   <div class="main" ng-controller="courseWare" window-scroll>
+     <div class="innerwrapper col-12"> 
+    <div class="pageHeader pageHeader001" ng-class="pageHeaderActive">
+        <h2 class="title">教学课件</h2>
+        <p class="excerpt">本页收录了湖南大学设计艺术学院《图形用户界面设计》课程的相关教学课件，课件中的各类素材主要由湖南大学师生绘制或从网上搜集得来，相关知识产权归原作者所有。课件中的各类观点仅代表课件作者的个人观点。</p>
+<!--        <span class="arrow arrowBottom">下三角</span>-->
+    </div>
+    <ul class="list2">
+        <li class="item col-4" ng-repeat="w in wares">
+            <a ng-click="showCourseWareDetail(w.id)" class="link">
+                <img class="thumb" ng-src="{{w.thumbnail}}" alt="">
+                <div class="info">
+                    <h3 class="title">{{w.title}}</h3>
+                    <p class="subtitle"><label class="author">{{w.author}}</label>&nbsp;<span>{{w.createTime|formatDate}}</span></p>
+                    <p class="excerpt gradient">{{w.excerpt}}</p>
+                </div>
+                <div class="tip">
+<!--                    <span class="arrow arrowTop">上三角</span>-->
+                    <span class="icon-ppt"></span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    
+    
+</div> 
+
+</div>
+<div ng-include="mainVars.footer"></div>

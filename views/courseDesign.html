@@ -1,0 +1,36 @@
+
+    <div class="main courseDesign" ng-controller="courseDesign" window-scroll>
+
+    <div class="innerwrapper col-12">
+    <!--<a class="nav">
+        <span class="icon-arrow-left"></span>
+    </a>
+    <a class="nav next">
+        <span class="icon-arrow-right"></span>
+    </a>-->
+    <div class="list4">
+        <div class="item" ng-repeat="d in designs" >
+            <!--<img ng-src="{{w.thumb}}" ng-repeat="w in d.works">-->
+            <div ng-click="showCourseDesignDetail(d.id,d.courseDetailId)" class="card">
+                <img class="bg" ng-src="{{d.bg}}">
+                <div class="cardInfo">
+                <h3 class="title">{{d.title}}</h3>
+                
+                <p class="subtitle">
+                    <label>指导老师</label>
+                    <span class="author">{{d.teacher}},</span>
+                    <span class="date">{{d.createTime|formatDate}}</span>
+                </p>
+                <div class="excerptContainer">
+                    <label>课程介绍</label>
+                    <p class="excerpt">{{d.abstract_}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+</div>
+<div ng-include="mainVars.footer"></div>  

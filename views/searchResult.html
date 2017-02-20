@@ -1,0 +1,79 @@
+<div ng-controller="searchResult" class="">
+    <div class="header">
+        <a class="goBack" ng-click="hideDetail()">
+            <span class="icon-arrow-left"></span>
+        </a>
+
+        <h1 class="pageTitle">
+            搜索
+        </h1>
+    </div>
+    <div class="main searchResult flex">
+       <div class="innerwrapper col-12">
+        <div class="pageHeader pageHeader003 pageHeaderSearch">
+            <div class="searchInput">
+                <label class="labelTip">添加搜索</label>
+                <input class="input" type="text" ng-model="searchTag">
+                <div class="handler" ng-click="addSearchTags(searchTag)">
+                    <span class="icon-search"></span>
+                </div>
+            </div>
+            <ul class="list1">
+                <li class="item" ng-repeat="t in tags">
+                    <span class="icon-close" ng-click="remove(t)"></span>
+                    <label class="text">{{t}}</label>
+                </li>
+                <li class="item" ng-if="tags.length!=0" ng-click="removeAll()">
+                    <label class="text">全部清除</label>
+                </li>
+            </ul>
+        </div>
+        <p class="resultTip fB">共搜索到（{{total}}）项内容</p>
+        <ul class="list2">
+            <li class="item col-4" ng-repeat="v in result.CourseDesign">
+                <a ng-click="showCourseDesignDetail(v.id,v.courseDetailId)" class="link">
+                    <img class="thumb" ng-src="{{v.thumbnail}}" alt="">
+                    <div class="info">
+                        <h3 class="title">{{v.title}}</h3>
+                        <div><label class="author">{{v.teacher}}</label>&nbsp;<span>{{v.createTime|formatDate}}</span></div>
+                        <p class="excerpt gradient">{{v.abstract_}}</p>
+                    </div>
+                    <div class="tip">
+                        <span class="icon-light-bubble"></span>
+                    </div>
+                </a>
+            </li>
+            <li class="item col-4" ng-repeat="v in result.Courseware">
+                <a ng-click="showCourseWareDetail(v.id)" class="link">
+                    <img class="thumb" ng-src="{{v.thumbnail}}" alt="">
+                    <div class="info">
+                        <h3 class="title">{{v.title}}</h3>
+                        <div><label class="author">{{v.author}}</label>&nbsp;<span>{{v.createTime|formatDate}}</span></div>
+                        <p class="excerpt gradient">{{v.abstract_}}</p>
+                    </div>
+                    <div class="tip">
+                        <span class="icon-ppt"></span>
+                    </div>
+                </a>
+            </li>
+            
+            <li class="item col-4" ng-repeat="v in result.VideoCourse">
+                <a ng-click="showCourseVideoDetail(v.id)" class="link">
+                    <img class="thumb" ng-src="{{v.thumbnail}}" alt="">
+                    <div class="info">
+                        <h3 class="title">{{v.title}}</h3>
+                        <div><label class="author">{{v.author}}</label>&nbsp;<span>{{v.createTime|formatDate}}</span></div>
+                        <p class="excerpt gradient">{{v.abstract_}}</p>
+                    </div>
+                    <div class="tip">
+                        <span class="icon-play"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+    
+    </div>
+    <div ng-include="mainVars.footer"></div>
+</div>
