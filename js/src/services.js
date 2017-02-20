@@ -43,7 +43,7 @@ services.constant("Config",{
         systemError:"系统发生错误，请稍后重试！"
     },
     ajaxUrls:{
-        baseUrl:"http://106.14.41.180:8080/gui/",
+        baseUrl:"http://106.14.41.180:8080/uidesign/",
         //baseUrl:"http://192.168.2.8:8080/design/",
         getAllCourseDesign:"coursedesign/frontList",
         getCourseDesignDetail:"coursedesign/select/:id",
